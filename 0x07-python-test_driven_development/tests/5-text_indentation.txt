@@ -1,0 +1,149 @@
+
+
+================================ 
+How to Use 5-text_indentation.py 
+========== ====================== 
+
+This module defines a text-indentation function ``text_indentation(text)''. 
+
+Usage 
+===== 
+
+Text is printed with two new lines after each of the characters ``.``, ``?``, 
+and ``:``. 
+
+:: 
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation 
+    >>> text_indentation("Hello?") 
+    Hello? 
+    <BLANKLINE> 
+
+No spaces are printed at the beginning of a line. 
+
+:: 
+
+    >>> text_indentation("Hi there.") 
+    Hi there. 
+    <BLANKLINE> 
+
+:: 
+
+    >>>
+
+Similarly, no spaces are printed at the end of each printed line. 
+
+:: 
+
+    >>> text_indentation("Hello. ") 
+    Hello. 
+    <BLANKLINE> 
+
+:: 
+
+    >>> text_indentation(" Woah now. This is messy. ") 
+    Woah now. 
+    <BLANKLINE> 
+    This is messy. 
+    <BLANKLINE> 
+
+New lines are only printed for the characters ``.``, ``?``, and ``:`` - 
+text not ending with one of these characters is not ending with a new line. 
+
+:: 
+
+    >>> text_indentation("No ending period, what bad grammar") 
+    No ending period, what bad grammar 
+
+New lines within a string are printed as normal. 
+
+::
+
+    >>> text_indentation("Let's print a new-line! Here goes:\nPrinted.") 
+    Let's print a new-line! Here goes: 
+    <BLANKLINE> 
+    <BLANKLINE> 
+    Printed. 
+    <BLANKLINE> 
+
+:: 
+
+    >>> text_indentation("\n\n\n We just printed three new lines.") 
+    <BLANKLINE> 
+    <BLANKLINE> 
+    <BLANKLINE> 
+    We just printed three new lines. 
+    <BLANKLINE> 
+
+:: 
+
+    >>> text_indentation("A sneaky \n new line.") 
+    A sneaky 
+    new line. 
+    <BLANKLINE> 
+
+A combo example: 
+
+:: 
+
+    >>> text_indentation("
+    ... "elite. In what way? Do I then seem to you to 
+    move the letter or the whole pages "... "? But not this: therefore not even that. Perhaps that is the best, " 
+    ... "but where is that: Always more pleasure? I hold, he says, that the end should seem to him " 
+    ... "nothing to grieve. Transfer the same to modesty or temperance, which is " ... "the moderation of desires 
+    obeying 
+    reason. If you say that, we have won. We have completed the stadia from Dipylus. If 
+    you want anything else "... "afterward. What affection of mind giving to each his own and this, " 
+    ... "which I say. If only they would say one was happier than the other! Now you would have seen the ruins " 
+    ..." ) # doctest:+NORMALIZE_WHITESPACE
+    The customer is very important, the customer will be followed by the customer. 
+    <BLANKLINE> 
+    How? 
+    <BLANKLINE> 
+    So do you think it's literal or does it affect whole pages? 
+    <BLANKLINE> 
+    But not this: 
+    <BLANKLINE> 
+    therefore not even that. 
+    <BLANKLINE> 
+    Perhaps that is the best, but where is it: 
+    <BLANKLINE> 
+    More pleasure always? 
+    <BLANKLINE> 
+    I hold, said he, that the end seemed to him no pain. 
+    <BLANKLINE> 
+    Transfer the same to modesty or temperance, 
+    which is the control of desires in obedience to reason. 
+    <BLANKLINE> 
+    If you say so,
+    <BLANKLINE> 
+    Then we finished those six stadia from Dipylus with a varied speech. 
+    <BLANKLINE> 
+    If you want anything else, later. 
+    <BLANKLINE> 
+    What an affection of the soul, giving to each his own, and this, which I say. 
+    <BLANKLINE> 
+    If only they would say that one is happier than the other! You should already see the ruins 
+
+Invalid Text 
+============ 
+
+The paramter ``text'' must be a string. Otherwise, a TypeError is raised. 
+
+:: 
+
+    >>> text_indentation(7) 
+    Traceback (most recent call last): 
+    TypeError: text must be a string 
+
+:: 
+
+    >>> text_indentation({"one": 1, "two": 2}) 
+    Traceback (most recent call last):
+    TypeError: text must be a string 
+
+:: 
+
+    >>> text_indentation(None) 
+    Traceback (most recent call last): 
+    TypeError: text must be a string
